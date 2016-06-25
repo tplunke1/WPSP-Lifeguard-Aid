@@ -1,0 +1,9 @@
+CREATE USER 'tplunke1'@'localhost' IDENTIFIED BY 't20o16sms';
+
+GRANT ALL PRIVILEGES ON *.* TO 'tplunke1'@'localhost' WITH GRANT OPTION;
+
+CREATE USER 'tplunke1'@'%' IDENTIFIED BY 't20o16sms';
+
+GRANT ALL PRIVILEGES ON *.* TO 'tplunke1'@'%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
