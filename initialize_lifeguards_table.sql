@@ -1,0 +1,3 @@
+INSERT INTO lifeguards 
+VALUES (1, Tyler, Plunkett, Tyler, 0), (2, Dakota, Couch, Dakota, 1),
+(3 Rebekah, Foster, Rebekah, 1), (4, Aaron, -, Aaron, 1), ...
