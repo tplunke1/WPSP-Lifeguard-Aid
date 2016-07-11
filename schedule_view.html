@@ -3,14 +3,46 @@
 	</head>
 	<body>
 		<script>
-		function reqListener () {
+		function reqListener()
+		{
 		  console.log(this.responseText);
 		}
+		
+		function createScheduleTable(lifeguards)
+		{
+			var body = document.body,
+				tbl = document.createElement('table'),
+				tr,
+				td;
+			
+			tbl.style.width = '100px';
+			tbl.style.border = '1px solid black';
+			d = new Date("January 1, 1970 10:00:00");
+			i = 0;
+			
+			while(d.getHours() < 18)
+			{
+				tr = tbl.insertRow();
+				
+				td = tr.insertCell();
+				td.appendChild(document.createTextNode(d.getHours().toString().concat(":").concat(('0'+d.getMinutes()%60).slice(-2))));
+				td.style.border = '1px solid black';
+				
+				td = tr.insertCell();
+				td.appendChild(document.createTextNode(lifeguards[i].prefered_name));
+				td.style.border = '1px solid black';
+				d.setMinutes(d.getMinutes() + 30);
+				i = (i + 1)%lifeguards.length;
+			}
+			
+			body.appendChild(tbl);
+		}
 
-		var oReq = new XMLHttpRequest(); //New request object
-		oReq.onload = function() {
-			//This is where you handle what to do with the response.
-			//The actual data is found on this.responseText
+		var oReq = new XMLHttpRequest();
+		oReq.onload = function()
+		{
+			var available_lifeguards = JSON.parse(this.responseText);
+			createScheduleTable(available_lifeguards);
 			alert(this.responseText);
 		};
 		

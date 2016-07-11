@@ -19,25 +19,23 @@
 	}
 
 	// Get lifeguards available
-	$sql = "SELECT lifeguard_id, first_name FROM lifeguards";
+	$sql = "SELECT lifeguard_id, prefered_name FROM lifeguards";
 	$stmt = $db->query($sql);
 	$available_lifeguards = [];
 	$total_count = $stmt->rowCount();
 	$available_count = $total_count - $leave_count;
-	$positions = range(1, $total_count);
 	$i = 0;
-	
-	shuffle($positions);
 	
 	while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 	{
 		if(empty($unavailable_lifeguards[$row['lifeguard_id']]))
 		{
-			$row['position'] = $positions[$i]; // insert generated position to data
-			$available_lifeguards[$i] = $row;
+			$available_lifeguards[] = $row;
+			$i++;
 		}
-		$i++;
 	}
+	
+	shuffle($available_lifeguards);
 	
 	echo json_encode($available_lifeguards);
 ?>
