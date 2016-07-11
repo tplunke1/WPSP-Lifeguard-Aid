@@ -1,7 +1,7 @@
 <?php
 $servername = "Pockets-PC";
-$username = "tplunke1";
-$password = "t20o16sms";
+$username = "tyler";
+$password = "password";
 
 // Connect to database
 $conn = new mysqli($servername, $username, $password);

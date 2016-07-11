@@ -43,7 +43,7 @@
 		{
 			var available_lifeguards = JSON.parse(this.responseText);
 			createScheduleTable(available_lifeguards);
-			alert(this.responseText);
+			//alert(this.responseText);
 		};
 		
 		oReq.open("get", "get_schedule_data.php", true);

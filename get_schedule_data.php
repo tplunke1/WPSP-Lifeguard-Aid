@@ -1,7 +1,7 @@
 <?php
 	$dsn = "mysql:host=Pockets-PC;dbname=wpsp_lifeguard_db;charset=utf8mb4";
-	$username = "tplunke1";
-	$password = "t20o16sms";
+	$username = "tyler";
+	$password = "password";
 	$dbname = "wpsp_lifeguard_db";
 
 	// Connect to database
